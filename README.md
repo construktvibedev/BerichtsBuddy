@@ -23,7 +23,7 @@ Da es sich um eine statische Web-App handelt, kannst du sie direkt öffnen:
 Alternativ mit einem lokalen Webserver (empfohlen):
 
 ```bash
-cd /home/runner/work/BerichtsBuddy/BerichtsBuddy
+cd ~/BerichtsBuddy
 python3 -m http.server 8080
 ```
 
@@ -34,7 +34,7 @@ Dann im Browser öffnen: `http://localhost:8080`
 ### Build
 
 ```bash
-cd /home/runner/work/BerichtsBuddy/BerichtsBuddy
+cd ~/BerichtsBuddy
 docker build -t berichtsbuddy .
 ```
 
