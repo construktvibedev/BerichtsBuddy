@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BerichtsBuddy</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script defer src="/app.js"></script>
+  </head>
+  <body>
+    <main class="app-shell glass">
+      <header class="app-header">
+        <h1>BerichtsBuddy</h1>
+        <p>Tägliche Ausbildungs-Stichpunkte (Montag bis Freitag)</p>
+      </header>
+
+      <section class="week-nav glass-soft" aria-label="Wochennavigation">
+        <button id="prevWeek" class="btn" type="button">← Vorherige Woche</button>
+        <h2 id="weekLabel"></h2>
+        <button id="nextWeek" class="btn" type="button">Nächste Woche →</button>
+      </section>
+
+      <section class="content-grid">
+        <aside class="day-list glass-soft" id="dayList" aria-label="Wochentage"></aside>
+
+        <section class="entry-panel glass-soft" aria-label="Eintrag bearbeiten">
+          <div class="entry-header">
+            <h3 id="entryDateLabel"></h3>
+            <span class="hint">Markdown unterstützt</span>
+          </div>
+
+          <div class="editor-preview">
+            <label class="sr-only" for="entryInput">Tagesnotiz</label>
+            <textarea
+              id="entryInput"
+              placeholder="Was hast du heute in der Ausbildung gemacht?"
+            ></textarea>
+
+            <article id="entryPreview" class="preview" aria-label="Markdown Vorschau"></article>
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>
