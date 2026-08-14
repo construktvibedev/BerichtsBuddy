@@ -9,6 +9,7 @@ Moderne Webanwendung für dein digitales Berichtsheft in der Ausbildung.
 - Einträge als **Stichpunkte mit Markdown-Unterstützung**
 - Live-Markdown-Vorschau
 - Speicherung aller Einträge mit Datum im **Browser Local Storage**
+- Autosave-Status nach dem Tippen (Speichert/Automatisch gespeichert)
 - Navigation zu vorherigen/nächsten Wochen
 - Modernes **Liquid-Glass** UI
 - Smooth Scrolling
