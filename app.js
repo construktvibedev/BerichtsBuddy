@@ -12,14 +12,18 @@ const weekLabelEl = document.getElementById("weekLabel");
 const entryDateLabelEl = document.getElementById("entryDateLabel");
 const entryInputEl = document.getElementById("entryInput");
 const entryPreviewEl = document.getElementById("entryPreview");
+const autosaveStatusEl = document.getElementById("autosaveStatus");
+let autosaveStatusTimeoutId = null;
 
 setupNavigation();
 renderWeek();
 
 entryInputEl.addEventListener("input", () => {
   if (!state.selectedDate) return;
+  setAutosaveStatus("Speichert…");
   state.entries[state.selectedDate] = entryInputEl.value;
   saveEntries(state.entries);
+  scheduleSavedStatus();
   renderPreview(entryInputEl.value);
   markFilledDays();
 });
@@ -157,4 +161,16 @@ function loadEntries() {
 
 function saveEntries(entries) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+}
+
+function scheduleSavedStatus() {
+  if (autosaveStatusTimeoutId) clearTimeout(autosaveStatusTimeoutId);
+  autosaveStatusTimeoutId = setTimeout(() => {
+    setAutosaveStatus("Automatisch gespeichert.");
+  }, 800);
+}
+
+function setAutosaveStatus(message) {
+  if (!autosaveStatusEl) return;
+  autosaveStatusEl.textContent = message;
 }
