@@ -184,6 +184,16 @@ body {
   margin-top: 0.7rem;
 }
 
+.entry-surface textarea,
+.entry-surface .preview {
+  display: none;
+}
+
+.entry-surface.edit-mode textarea,
+.entry-surface.preview-mode .preview {
+  display: block;
+}
+
 textarea {
   width: 100%;
   min-height: 360px;

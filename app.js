@@ -11,6 +11,7 @@ const state = {
 const dayListEl = document.getElementById("dayList");
 const weekLabelEl = document.getElementById("weekLabel");
 const entryDateLabelEl = document.getElementById("entryDateLabel");
+const entrySurfaceEl = document.getElementById("entrySurface");
 const entryInputEl = document.getElementById("entryInput");
 const entryPreviewEl = document.getElementById("entryPreview");
 const autosaveStatusEl = document.getElementById("autosaveStatus");
@@ -117,13 +118,7 @@ function renderSelectedDay() {
   const text = state.entries[state.selectedDate] || "";
   entryInputEl.value = text;
   renderPreview(text);
-  if (state.isEditing) {
-    entryInputEl.classList.remove("is-hidden");
-    entryPreviewEl.classList.add("is-hidden");
-    return;
-  }
-  entryInputEl.classList.add("is-hidden");
-  entryPreviewEl.classList.remove("is-hidden");
+  setEditorMode(state.isEditing);
 }
 
 function markFilledDays() {
@@ -144,19 +139,21 @@ function renderPreview(markdownText) {
 
 function enterEditMode() {
   if (!state.selectedDate) return;
-  state.isEditing = true;
-  entryInputEl.classList.remove("is-hidden");
-  entryPreviewEl.classList.add("is-hidden");
+  setEditorMode(true);
   entryInputEl.focus();
   const caretPosition = entryInputEl.value.length;
   entryInputEl.setSelectionRange(caretPosition, caretPosition);
 }
 
 function exitEditMode() {
-  state.isEditing = false;
-  entryInputEl.classList.add("is-hidden");
-  entryPreviewEl.classList.remove("is-hidden");
+  setEditorMode(false);
   renderPreview(entryInputEl.value);
+}
+
+function setEditorMode(isEditing) {
+  state.isEditing = isEditing;
+  entrySurfaceEl.classList.toggle("edit-mode", isEditing);
+  entrySurfaceEl.classList.toggle("preview-mode", !isEditing);
 }
 
 function buildWeekLabel(start, end) {
