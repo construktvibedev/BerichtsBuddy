@@ -18,7 +18,17 @@
       <section class="week-nav glass-soft" aria-label="Wochennavigation">
         <button id="prevWeek" class="btn" type="button">← Vorherige Woche</button>
         <h2 id="weekLabel"></h2>
-        <button id="nextWeek" class="btn" type="button">Nächste Woche →</button>
+        <div class="week-actions">
+          <button id="nextWeek" class="btn" type="button">Nächste Woche →</button>
+          <div class="export-controls">
+            <label class="sr-only" for="exportRange">Export-Zeitraum</label>
+            <select id="exportRange" class="btn btn-select">
+              <option value="week">Woche</option>
+              <option value="month">Monat</option>
+            </select>
+            <button id="exportButton" class="btn" type="button">Exportieren</button>
+          </div>
+        </div>
       </section>
 
       <section class="content-grid">
@@ -33,14 +43,20 @@
             </div>
           </div>
 
-          <div class="editor-preview">
+          <div class="entry-surface">
             <label class="sr-only" for="entryInput">Tagesnotiz</label>
             <textarea
               id="entryInput"
+              class="is-hidden"
               placeholder="Was hast du heute in der Ausbildung gemacht?"
             ></textarea>
-
-            <article id="entryPreview" class="preview" aria-label="Markdown Vorschau"></article>
+            <article
+              id="entryPreview"
+              class="preview"
+              tabindex="0"
+              role="button"
+              aria-label="Markdown Vorschau. Klicken zum Bearbeiten"
+            ></article>
           </div>
         </section>
       </section>
