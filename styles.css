@@ -79,6 +79,18 @@ body {
   font-size: clamp(1rem, 2.2vw, 1.15rem);
 }
 
+.week-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.export-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
 .btn {
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.12);
@@ -92,6 +104,10 @@ body {
 .btn:hover {
   transform: translateY(-1px);
   border-color: var(--accent);
+}
+
+.btn-select {
+  appearance: none;
 }
 
 .content-grid {
@@ -164,11 +180,8 @@ body {
   font-size: 0.75rem;
 }
 
-.editor-preview {
+.entry-surface {
   margin-top: 0.7rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.7rem;
 }
 
 textarea {
@@ -183,6 +196,10 @@ textarea {
   font: inherit;
 }
 
+.is-hidden {
+  display: none;
+}
+
 .preview {
   min-height: 360px;
   border-radius: 14px;
@@ -190,6 +207,7 @@ textarea {
   background: rgba(15, 23, 42, 0.45);
   padding: 0.8rem;
   overflow: auto;
+  cursor: text;
 }
 
 .preview :first-child {
@@ -225,7 +243,18 @@ textarea {
     grid-template-columns: 1fr;
   }
 
-  .editor-preview {
-    grid-template-columns: 1fr;
+  .week-nav {
+    flex-direction: column;
+  }
+
+  .week-actions {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .export-controls {
+    width: 100%;
+    justify-content: flex-end;
   }
 }

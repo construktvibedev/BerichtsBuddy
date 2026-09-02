@@ -7,7 +7,8 @@ Moderne Webanwendung für dein digitales Berichtsheft in der Ausbildung.
 - Wochenansicht von **Montag bis Freitag**
 - Beim Öffnen wird immer die **aktuelle Woche** angezeigt
 - Einträge als **Stichpunkte mit Markdown-Unterstützung**
-- Live-Markdown-Vorschau
+- Standardmäßig gerenderte Markdown-Ansicht, Bearbeitung per Klick/Fokus als Plain Text
+- Export als strukturierte **.md** für Woche oder Monat
 - Speicherung aller Einträge mit Datum im **Browser Local Storage**
 - Autosave-Status nach dem Tippen (Speichert/Automatisch gespeichert)
 - Navigation zu vorherigen/nächsten Wochen
